@@ -1,4 +1,4 @@
-package com.glinboy;
+package com.glinboy.demo;
 
 /**
  * Hello world!

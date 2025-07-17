@@ -1,4 +1,4 @@
-package com.glinboy;
+package com.glinboy.demo;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
