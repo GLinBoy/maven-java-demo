@@ -92,6 +92,37 @@ Or using Maven Wrapper:
 .\mvnw.cmd test        # For Windows
 ```
 
+## Logging Configuration
+
+The application uses Logback for logging with the following features:
+- Console logging is always enabled
+- File logging is optional and can be enabled via system property
+- Log files are stored in the `logs` directory
+- Rolling file policy with daily rotation
+- Keeps last 10 days of logs
+- Total log files size is capped at 1GB
+
+### Enabling File Logging
+
+By default, logs are only written to the console. To enable file logging, add the `-Dlog.file.enabled=true` system property when running the application:
+
+```bash
+# Using Java directly
+java -Dlog.file.enabled=true -jar target/demo-1.0.0.jar
+
+# Using Maven
+mvn exec:java -Dexec.mainClass="com.glinboy.demo.App" -Dlog.file.enabled=true
+```
+
+When file logging is enabled:
+- Current logs are written to: `logs/application.log`
+- Archived logs are stored in: `logs/archived/application.yyyy-MM-dd.log`
+
+To disable file logging, simply omit the system property or set it to false:
+```bash
+java -Dlog.file.enabled=false -jar target/demo-1.0.0.jar
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- Silence logback's internal logging -->
+	<statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+
+	<!-- Define the log pattern -->
+	<property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
+
+	<!-- Console Appender -->
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<!-- File Appender -->
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>logs/application.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>logs/archived/application.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>10</maxHistory>
+			<totalSizeCap>1GB</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<!-- Package specific logger -->
+	<logger name="com.glinboy" level="INFO"/>
+
+	<!-- Root Logger - for third party libraries -->
+	<root level="WARN">
+		<appender-ref ref="CONSOLE"/>
+	</root>
+
+	<!-- Conditional inclusion of file appender -->
+	<if condition='property("log.file.enabled").equals("true")'>
+		<then>
+			<root>
+				<appender-ref ref="FILE"/>
+			</root>
+		</then>
+	</if>
+</configuration>
