@@ -55,6 +55,7 @@
 		<assertj.version>3.27.3</assertj.version>
 		<jackson.version>2.19.2</jackson.version>
 		<commons-lang3.version>3.18.0</commons-lang3.version>
+		<guava.version>33.4.8-jre</guava.version>
 
     <!-- Maven Plugin Versions -->
 		<maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>
@@ -143,6 +144,11 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>${commons-lang3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
 		</dependency>
 	</dependencies>
 
