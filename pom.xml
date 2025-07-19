@@ -53,6 +53,7 @@
 		<logback.version>1.5.18</logback.version>
 		<mockito.version>5.18.0</mockito.version>
 		<assertj.version>3.27.3</assertj.version>
+		<jackson.version>2.19.2</jackson.version>
 
     <!-- Maven Plugin Versions -->
 		<maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>
@@ -121,6 +122,21 @@
 			<artifactId>assertj-core</artifactId>
 			<version>${assertj.version}</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
 		</dependency>
 	</dependencies>
 
