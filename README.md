@@ -40,7 +40,7 @@ mvn exec:java -Dexec.mainClass="com.glinboy.demo.App"
 ### Using Java directly (after building)
 
 ```bash
-java -jar target/demo-1.0-SNAPSHOT.jar
+java -jar target/demo-1.0.0.jar
 ```
 
 ## Project Structure
